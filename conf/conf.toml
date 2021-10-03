@@ -1,8 +1,12 @@
 Program = "github.com/Qianjiachen55/gin-fanyi-project"
 
 [mysql]
-ip = "localhost"
+ip = "127.0.0.1"
 port = "3306"
 username = "root"
-passwd = "123456"
-database = "default"
+passwd = ""
+database = "fydb"
+
+[baidu]
+appid = "20201208000641286"
+sk = "fYqfQRMJDyBVoedMGT8K"

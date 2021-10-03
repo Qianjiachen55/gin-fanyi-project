@@ -5,6 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func LoadRouter(engine *gin.Engine)  {
+func LoadRootRouter(engine *gin.Engine)  {
 	engine.GET("/",controllers.Test)
 }

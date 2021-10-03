@@ -43,7 +43,8 @@ to quickly create a Cobra application.`,
 		engine.Use(ginzap.RecoveryWithZap(logger, true))
 		engine.Use()
 		//engine.GET("/",controllers.Test)
-		routers.LoadRouter(engine)
+		routers.LoadRootRouter(engine)
+		routers.LoadDictRouter(engine)
 		_ = engine.Run(":8089")
 	},
 }
