@@ -17,8 +17,11 @@ package cmd
 
 import (
 	"github.com/Qianjiachen55/gin-fanyi-project/routers"
+	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
+	"go.uber.org/zap"
+	"time"
 )
 
 // startCmd represents the start command
@@ -33,12 +36,19 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		//fmt.Println("start called")
-		engine := gin.Default()
+		engine := gin.New()
+		logger, _ := zap.NewProduction()
+		
+		engine.Use(ginzap.Ginzap(logger, time.RFC3339, true))
+		engine.Use(ginzap.RecoveryWithZap(logger, true))
+		engine.Use()
 		//engine.GET("/",controllers.Test)
 		routers.LoadRouter(engine)
 		_ = engine.Run(":8089")
 	},
 }
+
+
 
 func init() {
 	rootCmd.AddCommand(startCmd)
