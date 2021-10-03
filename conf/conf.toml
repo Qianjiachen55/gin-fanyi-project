@@ -1,0 +1,8 @@
+Program = "github.com/Qianjiachen55/gin-fanyi-project"
+
+[mysql]
+ip = "localhost"
+port = "3306"
+username = "root"
+passwd = "123456"
+database = "default"
