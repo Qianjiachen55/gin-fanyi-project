@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/Qianjiachen55/gin-fanyi-project/global"
 	"github.com/Qianjiachen55/gin-fanyi-project/initalize"
 	"github.com/Qianjiachen55/gin-fanyi-project/model"
 	"time"
@@ -9,10 +10,9 @@ import (
 
 
 func InsertDict(from string,to string) (*model.Dict,error) {
-	db := initalize.ConnectMysql()
 	dict := model.NewDict(from,to,time.Now().Format("2006-01-02 15:04:05"),0)
-	db.AutoMigrate(&model.Dict{})
-	result := db.Create(&dict)
+
+	result := global.GFP_MYSQL.Create(&dict)
 	if result.Error != nil {
 		return nil, result.Error
 	}

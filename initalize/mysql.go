@@ -2,10 +2,12 @@ package initalize
 
 import (
 	"fmt"
+	"github.com/Qianjiachen55/gin-fanyi-project/model"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
+
 
 func ConnectMysql()  *gorm.DB{
 	ip := viper.GetString("mysql.ip")
@@ -31,4 +33,14 @@ func ConnectMysql()  *gorm.DB{
 
 
 	return db
+}
+
+func InitTables(db *gorm.DB)  {
+
+
+	if err := db.AutoMigrate(&model.Dict{});err != nil {
+		panic(err)
+	}
+
+
 }
