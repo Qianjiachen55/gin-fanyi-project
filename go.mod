@@ -7,6 +7,7 @@ require (
 	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/gin-contrib/zap v0.0.1
 	github.com/gin-gonic/gin v1.7.4
+	github.com/go-redis/redis/v8 v8.11.4 // indirect
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.8.1

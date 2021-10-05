@@ -35,7 +35,7 @@ func ConnectMysql()  *gorm.DB{
 	return db
 }
 
-func InitTables(db *gorm.DB)  {
+func InitMysql(db *gorm.DB)  {
 
 
 	if err := db.AutoMigrate(&model.Dict{});err != nil {

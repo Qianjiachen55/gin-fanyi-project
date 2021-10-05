@@ -18,7 +18,14 @@ func PostDict(ctx *gin.Context) {
 		})
 	}
 
-	dict, err := service.InsertDict(from, to)
+	dict, err := service.InsertDictMysql(from, to)
+	if err != nil {
+		ctx.IndentedJSON(http.StatusOK, model.Response{
+			Code:    500,
+			Message: err.Error(),
+		})
+	}
+	err = service.InsertDictRedis(from,to)
 	if err != nil {
 		ctx.IndentedJSON(http.StatusOK, model.Response{
 			Code:    500,

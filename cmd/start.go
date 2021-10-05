@@ -40,8 +40,11 @@ to quickly create a Cobra application.`,
 
 		global.GFP_MYSQL = initalize.ConnectMysql()
 
+		global.GFP_REDIS = initalize.RedisClient()
 
-		initalize.InitTables(global.GFP_MYSQL)
+		initalize.InitMysql(global.GFP_MYSQL)
+		initalize.InitRedis(global.GFP_REDIS)
+
 
 		engine := gin.New()
 		logger := initalize.Logger()
