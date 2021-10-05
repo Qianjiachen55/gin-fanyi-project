@@ -16,11 +16,11 @@ limitations under the License.
 package cmd
 
 import (
+	"github.com/Qianjiachen55/gin-fanyi-project/initalize"
 	"github.com/Qianjiachen55/gin-fanyi-project/routers"
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
-	"go.uber.org/zap"
 	"time"
 )
 
@@ -37,7 +37,7 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		//fmt.Println("start called")
 		engine := gin.New()
-		logger, _ := zap.NewProduction()
+		logger := initalize.Logger()
 		
 		engine.Use(ginzap.Ginzap(logger, time.RFC3339, true))
 		engine.Use(ginzap.RecoveryWithZap(logger, true))
