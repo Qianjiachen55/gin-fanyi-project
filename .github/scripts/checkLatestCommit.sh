@@ -3,7 +3,7 @@
 # check latest commit message
 
 # shellcheck disable=SC2034
-commit=$1
+commit=`cat $1`
 echo $commit
 # shellcheck disable=SC1036
 # shellcheck disable=SC1036
