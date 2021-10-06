@@ -10,5 +10,5 @@ jobs:
       # - run: echo "${{ github.event.head_commit.message }}"
       - run: |
         chmod +x "${{ GITHUB_WORKSPACE }}/.github/workflows/scripts/*"
-        "${{ GITHUB_WORKSPACE }}/.github/workflows/scripts/checkLatestCommit.sh" "${{ github.event.head_commit.message }}"
+        bash "${GITHUB_WORKSPACE}/.github/workflows/scripts/checkLatestCommit.sh" "${{ github.event.head_commit.message }}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
