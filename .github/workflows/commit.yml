@@ -9,5 +9,5 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: |
         chmod +x "${GITHUB_WORKSPACE}/.github/workflows/scripts/*"
-        ${GITHUB_WORKSPACE}/.github/workflows/scripts/checkLatestCommit.sh ${{ github.event.head_commit.message }}
+        # ${GITHUB_WORKSPACE}/.github/workflows/scripts/checkLatestCommit.sh ${{ github.event.head_commit.message }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
