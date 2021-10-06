@@ -1,2 +1,3 @@
 conf/
-log/info.log
+log/
+.idea
