@@ -30,7 +30,7 @@ func Run(cmd *cobra.Command, args []string) {
 	engine.Use(ginzap.RecoveryWithZap(global.GFP_LOGGER, true))
 	routers.LoadRootRouter(engine)
 	routers.LoadDictRouter(engine)
-	if err := engine.Run(":8089"); err != nil {
+	if err := engine.Run(":8080"); err != nil {
 		panic(err)
 	}
 }

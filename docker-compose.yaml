@@ -1,0 +1,38 @@
+version: "3.0"
+services:
+  app:
+    container_name: fy-go
+    restart: always
+    build: .
+    ports:
+      - "8081:8080"
+#    networks:
+#      - mynetwork
+    depends_on:
+      - db-mysql
+      - db-redis
+
+  db-mysql:
+    restart: always
+    image: mysql/mysql-server:latest
+    container_name: fy-mysql
+    volumes:
+      - ./conf/.mysql/my.cnf:/etc/my.cnf
+      - ./.mysql-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+
+#    networks:
+#      - mynetwork
+
+
+  db-redis:
+    restart: always
+    image: redis:latest
+    container_name: fy-redis
+    expose:
+      - 6379
+    command:
+      --requirepass "123"
