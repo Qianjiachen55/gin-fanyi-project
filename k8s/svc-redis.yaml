@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-db-redis
+spec:
+  selector:
+    app: kube-db-redis
+  ports:
+    - port: 6379

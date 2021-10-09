@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kube-svr-go
+  name: kube-go
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kube-svr-go
+      app: kube-go
   template:
     metadata:
       labels:
-        app: kube-svr-go
+        app: kube-go
     spec:
       containers:
-        - name: kube-svr-go
-          image: "gin-fanyi-project_app:latest"
-          imagePullPolicy: IfNotPresent
+        - name: kube-go
+          image: "fanyi:v1"
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
