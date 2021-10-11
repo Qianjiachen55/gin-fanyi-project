@@ -11,6 +11,6 @@ jobs:
       - run: ls -a ..
       - run: ls -a .
       - run: echo "${{ github.event_path }}"
-      - run: echo "${{ toJSON(github }}"
+      - run: echo "${{ toJSON(github) }}"
       - run: bash "${{ github.event_path }}/.github/checkLatestCommit.sh" "${{ github.event.head_commit.message }}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
