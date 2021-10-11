@@ -10,7 +10,7 @@ jobs:
       - run: pwd
       - run: ls -a ..
       - run: echo "${{ github.action_path }}"
-      - run: echo "${{ GITHUB_ACTION_PATH }}"
+      - run: echo "$GITHUB_ACTION_PATH"
       - run: echo "${{ github.event_path }}"
       - run: bash "${{ github.event_path }}/.github/checkLatestCommit.sh" "${{ github.event.head_commit.message }}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
