@@ -16,10 +16,10 @@ var startCmd = &cobra.Command{
 	Use:   "start",
 	Short: "start gfp server",
 	Long: `use go run main.go start to start server or go build -o app && ./app start to start server`,
-	Run: Run,
+	Run: runStart,
 }
 
-func Run(cmd *cobra.Command, args []string) {
+func runStart(cmd *cobra.Command, args []string) {
 	engine := gin.New()
 	global.GFP_MYSQL = initalize.ConnectMysql()
 	global.GFP_REDIS = initalize.RedisClient()
