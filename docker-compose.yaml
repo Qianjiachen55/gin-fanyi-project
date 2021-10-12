@@ -9,10 +9,10 @@ services:
 #    networks:
 #      - mynetwork
     depends_on:
-      - db-mysql
-      - db-redis
+      - kube-db-mysql
+      - kube-db-redis
 
-  db-mysql:
+  kube-db-mysql:
     restart: always
     image: mysql/mysql-server:latest
     container_name: fy-mysql
@@ -28,11 +28,13 @@ services:
 #      - mynetwork
 
 
-  db-redis:
+  kube-db-redis:
     restart: always
     image: redis:latest
     container_name: fy-redis
     expose:
       - 6379
-    command:
-      --requirepass "123"
+#    command:
+#      --requirepass "123"
+#    networks:
+#      - mynetwork
