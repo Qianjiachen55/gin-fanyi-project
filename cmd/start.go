@@ -28,8 +28,11 @@ func runStart(cmd *cobra.Command, args []string) {
 	initalize.InitRedis(global.GFP_REDIS)
 	engine.Use(ginzap.Ginzap(global.GFP_LOGGER, time.RFC3339, true))
 	engine.Use(ginzap.RecoveryWithZap(global.GFP_LOGGER, true))
+	// load router
 	routers.LoadRootRouter(engine)
 	routers.LoadDictRouter(engine)
+	routers.LoadUpdateRouter(engine)
+
 	if err := engine.Run(":8080"); err != nil {
 		panic(err)
 	}
